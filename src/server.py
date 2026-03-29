@@ -152,6 +152,4 @@ def api_history_clear():
     return jsonify({"ok": True})
 
 
-if __name__ == "__main__":
-    # Can also be started via run.py at project root
-    app.run(debug=False, port=5000)
+
