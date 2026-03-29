@@ -4,6 +4,8 @@
 
 **Turn long campus briefs into structured Action Cards — not summaries, but what to do next.**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-green?style=for-the-badge)](https://campus-brief.onrender.com)
+
 Built for **UNNC 30H AI Hackathon 2026** | Campus Track
 
 Shihao Liu &middot; Pu Xu &middot; Yuchi Dai
