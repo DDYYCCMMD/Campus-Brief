@@ -1,0 +1,53 @@
+UNNC 30-Hour AI Hackathon 2026
+
+Date: 28-29 March 2026
+Venue: Teaching Building 1, Room TB103 & TB105
+Organizer: UNNC Student AI Society & School of Computer Science
+
+Theme: AI for Good – Campus Edition
+
+Tracks:
+1. Campus – Build AI tools that improve student life on campus
+2. Sustainability – Use AI to promote environmental sustainability
+3. Education – Leverage AI to enhance learning experiences
+
+Rules & Guidelines:
+- Team size: 3-5 members, cross-faculty teams encouraged
+- Each team must have at least one member from a non-CS background
+- All coding must be done during the 30-hour hackathon window
+- Pre-existing code libraries and open-source tools are allowed, but core logic must be original
+- Teams must use at least one AI/ML component (API calls count)
+- Each team will receive API credits for MiniMax (details at check-in)
+
+Schedule:
+- 28 March, 09:00 – Opening ceremony & team formation
+- 28 March, 10:00 – Hacking begins
+- 28 March, 18:00 – Dinner & mentor check-in
+- 29 March, 08:00 – Breakfast
+- 29 March, 12:00 – Code freeze
+- 29 March, 13:00 – Presentations begin (5 min pitch + 3 min Q&A per team)
+- 29 March, 16:00 – Awards ceremony
+
+Submission Requirements:
+- GitHub repository with README (must include: project description, tech stack, how to run, team members)
+- 3-slide pitch deck (problem, solution, demo)
+- Live demo or recorded demo video (max 2 minutes)
+- Submit all materials via the hackathon portal by 12:00, 29 March 2026
+
+Judging Criteria:
+- Theme & Topic Relevance: 20%
+- Business Potential: 15%
+- Product Maturity: 20%
+- Depth of AI Application: 20%
+- Innovation: 15%
+- Technical Implementation: 10%
+
+Prizes:
+- 1st Place: ¥5000 + internship interview opportunities
+- 2nd Place: ¥3000
+- 3rd Place: ¥1500
+- Best AI Use Award: ¥1000
+- Best Cross-Faculty Team: ¥1000
+
+Contact: hackathon@unnc-ai-society.org
+Registration: forms.unnc.edu.cn/hackathon2026 (deadline: 20 March 2026)

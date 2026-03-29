@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusBrief — Turn Briefs into Action</title>
+  <meta name="description" content="CampusBrief uses a 3-step AI pipeline (Classify → Extract → Plan) to turn long campus briefs into structured Action Cards with deadlines, team steps, and risk flags.">
+  <meta property="og:title" content="CampusBrief — Turn Briefs into Action">
+  <meta property="og:description" content="AI-powered tool that converts campus documents into actionable plans. Built for UNNC 30H AI Hackathon 2026.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%234a6cf7'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='52' height='52' rx='14' fill='url(%23g)'/%3E%3Cpath d='M22 19h15l7 7v19a3 3 0 0 1-3 3H22a3 3 0 0 1-3-3V22a3 3 0 0 1 3-3Z' fill='white' opacity='.96'/%3E%3Cpath d='M37 19v7h7' fill='none' stroke='%234a6cf7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M25 33h14M25 39h14' fill='none' stroke='%234a6cf7' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='m25 27 3 3 5-5' fill='none' stroke='%237c3aed' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <i data-lucide="clipboard-check" class="brand-icon"></i>
+        </div>
+        <div>
+          <h1 class="brand-title">CampusBrief</h1>
+          <p class="brand-sub">Turn long campus briefs into action cards</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="header-chip">
+          <i data-lucide="sparkles" class="chip-icon"></i>
+          Student productivity AI
+        </span>
+        <span id="mode-badge" class="mode-badge">Loading</span>
+      </div>
+    </div>
+    <div class="diff-banner">
+      <i data-lucide="zap" class="diff-icon"></i>
+      <span>We are <strong>not just summarizing</strong>. Summaries tell you what the text says — CampusBrief tells you <strong>what to do next</strong>, with team steps, deadlines, and risk flags.</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="panel panel-input">
+      <div class="section-kicker">Input</div>
+      <h2 class="panel-title panel-title-lg">Paste Your Brief</h2>
+      <p class="panel-desc">Best for assignment briefs, hackathon notices, exam schedules, scholarship postings, event instructions, and campus announcements.</p>
+
+      <div class="input-tip">
+        <i data-lucide="info" class="inline-icon"></i>
+        <span>Use a sample, upload a file, or paste raw text. CampusBrief works with both English and Chinese content.</span>
+      </div>
+
+      <label for="sample-select" class="label">Quick start with a sample</label>
+      <select id="sample-select" class="select" aria-label="Choose a sample brief">
+        <option value="">Choose a sample...</option>
+      </select>
+
+      <div id="upload-zone" class="upload-zone" role="button" tabindex="0" aria-label="Upload a file">
+        <input type="file" id="file-input" accept=".pdf,.docx,.txt" hidden>
+        <div class="upload-visual">
+          <div class="upload-icon-wrap">
+            <i data-lucide="paperclip" class="upload-icon"></i>
+          </div>
+          <div>
+            <div class="upload-text">Drop a file here or <a id="upload-link" href="#">browse</a></div>
+            <div class="upload-hint">Supports PDF, DOCX, TXT · max 10MB</div>
+          </div>
+        </div>
+      </div>
+      <div id="upload-status" class="upload-status" hidden></div>
+
+      <label for="input-text" class="label">Brief content</label>
+      <textarea id="input-text" class="textarea" rows="14" aria-label="Brief content" aria-describedby="char-count" placeholder="Paste your assignment brief, exam notice, hackathon rules, scholarship posting, or any campus document here..."></textarea>
+
+      <div class="input-meta">
+        <span id="char-count">0 words · 0 chars</span>
+        <span>Ctrl/Cmd + Enter to generate</span>
+      </div>
+
+      <button id="generate-btn" class="btn-primary" title="Ctrl + Enter">
+        <i data-lucide="sparkles" class="btn-icon"></i>
+        <span>Generate Action Card</span>
+      </button>
+      <div class="shortcut-hint">or press <kbd>Ctrl</kbd> + <kbd>Enter</kbd></div>
+    </section>
+
+    <section class="panel panel-output">
+      <div id="placeholder" class="placeholder">
+        <div class="placeholder-mark">
+          <i data-lucide="layout-template" class="placeholder-icon"></i>
+        </div>
+        <h3>Your Action Card will appear here</h3>
+        <p>Paste a campus brief on the left and click <strong>Generate Action Card</strong> — or pick a sample to try it instantly.</p>
+        <div class="pipeline-preview">
+          <span class="pw-badge pw-classify">Classify</span>
+          <span class="pw-arrow">→</span>
+          <span class="pw-badge pw-extract">Extract</span>
+          <span class="pw-arrow">→</span>
+          <span class="pw-badge pw-plan">Plan</span>
+        </div>
+        <div class="type-chips">
+          <span class="type-chip tc-assignment">Assignment</span>
+          <span class="type-chip tc-competition">Competition</span>
+          <span class="type-chip tc-event">Event</span>
+          <span class="type-chip tc-exam">Exam</span>
+          <span class="type-chip tc-application">Application</span>
+          <span class="type-chip tc-notice">Notice</span>
+        </div>
+        <p class="type-chips-hint">Auto-detects 6 document types with tailored extraction strategies</p>
+      </div>
+
+      <div id="loading" class="loading" hidden>
+        <div class="loading-title">Analyzing your brief...</div>
+        <div class="pipeline-steps">
+          <div class="pstep active" id="step-classify">
+            <div class="pstep-dot"></div>
+            <span>Classify</span>
+          </div>
+          <div class="pstep-line"></div>
+          <div class="pstep" id="step-extract">
+            <div class="pstep-dot"></div>
+            <span>Extract</span>
+          </div>
+          <div class="pstep-line"></div>
+          <div class="pstep" id="step-plan">
+            <div class="pstep-dot"></div>
+            <span>Plan</span>
+          </div>
+        </div>
+        <div class="loading-sub" id="loading-sub">Step 1/3 — Identifying document type...</div>
+      </div>
+
+      <div id="result" hidden>
+        <div id="error-bar" class="error-bar" role="alert" hidden></div>
+
+        <div class="result-header">
+          <div>
+            <span class="label-sm">Detected Type</span>
+            <span id="type-badge" class="type-badge"></span>
+          </div>
+          <div class="workflow-badges">
+            <span class="pw-badge pw-classify">Classify</span>
+            <span class="pw-arrow">→</span>
+            <span class="pw-badge pw-extract">Extract</span>
+            <span class="pw-arrow">→</span>
+            <span class="pw-badge pw-plan">Plan</span>
+          </div>
+        </div>
+
+        <div id="workflow-log" class="workflow-log"></div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-action" data-tab="tab-action">
+            <i data-lucide="clipboard-list" class="tab-ic"></i>
+            <span>Action Card</span>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-timeline" data-tab="tab-timeline">
+            <i data-lucide="calendar-days" class="tab-ic"></i>
+            <span>Timeline</span>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-compare" data-tab="tab-compare">
+            <i data-lucide="scan-search" class="tab-ic"></i>
+            <span>vs Naive Summary</span>
+          </button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-fields" data-tab="tab-fields">
+            <i data-lucide="chart-column" class="tab-ic"></i>
+            <span>Extracted Fields</span>
+          </button>
+        </div>
+
+        <div id="tab-action" class="tab-content active" role="tabpanel">
+          <div class="action-card" id="action-card"></div>
+          <div class="compare-teaser" id="compare-teaser">
+            <i data-lucide="scan-search" class="teaser-icon"></i>
+            <span>See how this compares to a <a href="#" id="teaser-link">generic AI summary</a></span>
+          </div>
+          <div class="export-row">
+            <button class="btn-sm" id="btn-copy" title="Copy as Markdown">
+              <i data-lucide="copy" class="btn-sm-icon"></i>
+              <span>Copy</span>
+            </button>
+            <button class="btn-sm" id="btn-download" title="Download .md file">
+              <i data-lucide="download" class="btn-sm-icon"></i>
+              <span>Export .md</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="tab-timeline" class="tab-content" role="tabpanel">
+          <p class="fields-intro"><strong>Deadline Timeline</strong> — all deadlines extracted from your brief, visualized on a timeline.</p>
+          <div id="timeline" class="timeline"></div>
+          <div id="timeline-empty" class="timeline-empty" hidden>No datable deadlines found in this brief.</div>
+          <div class="export-row">
+            <button class="btn-sm" id="btn-export-cal" title="Export deadlines to Google Calendar / Outlook">
+              <i data-lucide="calendar-plus" class="btn-sm-icon"></i>
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="tab-compare" class="tab-content" role="tabpanel">
+          <p class="compare-intro"><strong>Why not just use AI to summarize?</strong> Compare a generic summary with our structured Action Card.</p>
+          <div class="compare-grid">
+            <div class="compare-left">
+              <div class="compare-label compare-label-muted">
+                <i data-lucide="file-text" class="compare-ic"></i>
+                Generic AI Summary
+              </div>
+              <div id="naive-summary" class="naive-box"></div>
+              <p class="compare-caption">A summary tells you what the text says.</p>
+            </div>
+            <div class="compare-right">
+              <div class="compare-label compare-label-strong">
+                <i data-lucide="clipboard-check" class="compare-ic"></i>
+                CampusBrief Action Card
+              </div>
+              <div id="card-preview" class="card-preview"></div>
+              <p class="compare-caption">An action card tells you what to do next.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-fields" class="tab-content" role="tabpanel">
+          <p class="fields-intro"><strong>Structured data extracted by the AI pipeline</strong> — this intermediate result feeds into the Action Planner.</p>
+          <div class="fields-grid" id="fields-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="history-section">
+    <div class="history-header">
+      <div>
+        <div class="section-kicker">Recent activity</div>
+        <h2>History</h2>
+      </div>
+      <button id="btn-clear-history" class="btn-sm btn-danger" title="Clear all history">
+        <i data-lucide="trash-2" class="btn-sm-icon"></i>
+        <span>Clear All</span>
+      </button>
+    </div>
+    <div id="history-list" class="history-list">
+      <p class="history-empty">No history yet. Generate an action card to get started.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Built for <strong>UNNC 30H AI Hackathon 2026</strong> — Campus Track</span>
+    <span>·</span>
+    <span>Powered by <strong>MiniMax-M2.5</strong></span>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

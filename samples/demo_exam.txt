@@ -1,0 +1,52 @@
+COMP2043 Software Engineering — Mid-Term Examination Notice
+
+Dear Students,
+
+This is to inform you of the mid-term examination arrangements for COMP2043 Software Engineering, Semester 2, 2025-2026.
+
+Exam Details:
+- Date: Wednesday, 16 April 2026
+- Time: 14:00 – 16:00 (2 hours)
+- Venue: Sir Peter Mansfield Building, Room PMB-G01 (Ground Floor Lecture Theatre)
+- Format: Closed-book, written exam
+
+Exam Structure:
+Section A (40 marks): 20 multiple-choice questions covering Weeks 1–6 lecture content
+Section B (30 marks): 3 short-answer questions (answer ALL), focusing on UML diagrams, design patterns, and software testing concepts
+Section C (30 marks): 1 case-study question (choose 1 out of 2), requiring you to analyze a software project scenario and propose a development plan
+
+Topics Covered:
+- Software Development Life Cycle (SDLC) models
+- Requirements Engineering (use cases, user stories)
+- UML: class diagrams, sequence diagrams, activity diagrams
+- Design Patterns: Singleton, Observer, Factory, Strategy
+- Software Testing: unit testing, integration testing, test-driven development
+- Agile & Scrum methodology
+- Version control with Git (branching, merging strategies)
+
+Allowed Materials:
+- Student ID card (mandatory — no ID, no entry)
+- Black or blue pens only (no pencil for final answers)
+- A simple non-programmable calculator is permitted for Section B Q3 only
+- NO electronic devices, phones, or smartwatches allowed in the exam hall
+
+Important Rules:
+1. Arrive at least 15 minutes early. Doors close at 14:10 — late arrivals after 14:10 will NOT be admitted.
+2. Seating is assigned — check the noticeboard outside PMB-G01 on exam day.
+3. You may leave the exam hall after the first 45 minutes, but not in the last 15 minutes.
+4. Academic integrity: any form of cheating will result in a mark of zero and referral to the Academic Conduct Committee.
+
+Revision Resources:
+- Past papers (2024 and 2025) are available on Moodle under "Exam Resources"
+- A revision lecture will be held on Monday 14 April, 10:00-12:00, in SA-LT1
+- Office hours for exam queries: Dr. Zhang, Wednesday 9 April, 14:00-16:00, Room SA302
+
+If you have approved reasonable adjustments (extra time, separate room), please confirm your arrangements with the Student Support team by Friday 11 April.
+
+Good luck with your preparation.
+
+Best regards,
+Dr. Wei Zhang
+Module Convenor, COMP2043
+School of Computer Science
+University of Nottingham Ningbo China

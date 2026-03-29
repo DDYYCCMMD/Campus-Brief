@@ -1,0 +1,41 @@
+COMP2043 Software Engineering Group Project – Semester 2, 2025/26
+
+Module Convenor: Dr. James Chen
+School of Computer Science, University of Nottingham Ningbo China
+
+Overview:
+This is a group coursework worth 40% of the total module mark. You will work in teams of 3-4 students to design and implement a software application that addresses a real-world problem. Your team must follow agile development practices, including sprint planning, daily stand-ups (recommended), and retrospectives.
+
+Requirements:
+1. Choose a problem domain relevant to campus life, sustainability, or education.
+2. Develop a working prototype using any programming language or framework of your choice.
+3. The application must include at least one external API integration.
+4. Write a technical report (max 3000 words) covering:
+   - Problem statement and motivation
+   - System architecture and design decisions
+   - Implementation details and key code snippets
+   - Testing strategy and results
+   - Individual contribution statement (each member must write their own section)
+5. Prepare a 10-minute group presentation followed by 5-minute Q&A.
+6. All code must be hosted on a shared GitHub repository with clear commit history showing individual contributions.
+
+Deliverables:
+- Technical Report: Submit via Moodle by 23:59, Friday 17 April 2026
+- Presentation: In-class during Week 11 (28 April – 2 May 2026), exact slot TBA
+- GitHub Repository Link: Submit via Moodle along with the report
+- Peer Assessment Form: Complete individually by 23:59, Sunday 4 May 2026
+
+Marking Criteria:
+- Software Quality & Functionality: 30%
+- Technical Report: 30%
+- Presentation: 20%
+- Code Quality & Version Control: 10%
+- Individual Contribution & Peer Assessment: 10%
+
+Late Submission Policy:
+Standard university late submission penalties apply. Work submitted up to 5 working days late will receive a maximum mark of 40%. Work submitted more than 5 working days late will receive 0%.
+
+Academic Integrity:
+All work must be original. Use of AI tools (e.g., MiniMax, GitHub Copilot) must be declared and documented in your report. Undeclared use of AI-generated code may be treated as academic misconduct.
+
+If you have any questions, please post on the module forum or attend office hours (Wednesday 14:00-16:00, Room SA302).

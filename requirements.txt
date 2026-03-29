@@ -1,0 +1,5 @@
+flask>=3.0.0
+openai>=1.10.0  # MiniMax API 使用 OpenAI SDK 协议进行调用
+python-dotenv>=1.0.0
+pdfplumber>=0.10.0
+python-docx>=1.0.0
